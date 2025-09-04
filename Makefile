@@ -36,7 +36,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 $(DOC_OUTPUT): $(DOC_SOURCE)
 	@mkdir -p $(BUILD_DIR)
 	@echo "🗒️ Сборка документации"
-	@typst compile -root .. $< $@
+	@typst compile --root .. $< $@
 
 
 clean:

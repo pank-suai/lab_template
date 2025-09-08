@@ -65,14 +65,16 @@
     
   // toc
  {
+    if false {
       show outline: set block(below: 1.25cm / 2)
       show heading: it => {
-      set text(size: 14pt)
-      set align(center)
-      upper(it)
+        set text(size: 14pt)
+        set align(center)
+        upper(it)
+      }
+      outline(depth: 3, indent: 1.25cm)
+      pagebreak()
     }
-    outline(depth: 3, indent: 1.25cm)
-    pagebreak()
   }
   show heading: it => block(width: 100%)[
     #set text(14pt, weight: "bold", hyphenate: false)
@@ -87,7 +89,10 @@
   show figure: set block(breakable: true)
   set math.equation(numbering: "(1)")
   set page(numbering: "1")
+  
 
+  show raw: set text(10pt, font: "JetBrains Mono")
+  show raw: set par(justify: false, leading: 1em)
 
   body
 }

@@ -9,6 +9,7 @@
    [documentName] - Название документа (например "ОТЧЁТ")
    [group] - Название группы
    [city] - Город
+   [object] - Предмет/курс
 */
 #let titlepage(
   title: "",
@@ -21,7 +22,7 @@
   documentName: "ОТЧЁТ ПО ЛАБОРАТОРНЫМ РАБОТАМ",
   group: "ГРУППА",
   city: "ГОРОД",
-  isPractice: false, // TODO если практика, то добавить дополнительное поле для оценки
+  object: "ПРЕДМЕТ",
 ) = {
   set text(font: "Times New Roman", size: 12pt, lang: "ru", hyphenate: false)
   set page(
@@ -40,7 +41,7 @@
   align(left, "ПРЕПОДАВАТЕЛЬ")
   grid(
     columns: (1.5fr, 1fr, 1.5fr),
-    row-gutter: 2pt,
+    row-gutter: 3pt,
     column-gutter: 10pt,
     align(center, position), "", align(center, teachers.join(", ")),
     line(length: 100%), line(length: 100%), line(length: 100%),
@@ -51,14 +52,21 @@
 
 
   v(3fr)
-  align(center, upper(documentName))
-  align(center, stack(dir: ttb, title, v(5pt), align(bottom, line(length: 0%))))
+  align(center, text(upper(documentName), size: 1.23em))
+  v(0.8fr)
+  align(center, stack(dir: ttb, text(title, size: 1.2em), v(5pt), align(
+    bottom,
+    line(length: 0%),
+  )))
+  v(0.8fr)
+  align(center)[по курсу:]
+  align(center)[#object]
   v(3fr)
   grid(
     columns: (1fr, 1fr, 1fr, 1fr),
     column-gutter: 10pt,
     row-gutter: 3pt,
-      grid.cell([РАБОТУ ВЫПОЛНИЛ], colspan: 2), text(2.5em, ""), "",
+    grid.cell([РАБОТУ ВЫПОЛНИЛ], colspan: 2), text(2.5em, ""), "",
 
     "СТУДЕНТ гр №", align(center, group), "", align(center, authors.join(", ")),
     line(length: 0%),

@@ -1,5 +1,21 @@
 # Agent Guidelines for Lab Template
 
+## Template Description
+This is a template for C++23 programming lab assignments. The template includes:
+- Project structure with `src/`, `docs/`, `images/`, `build/` directories
+- Makefile for automated build and compilation
+- Typst documentation system
+- Configured environment for academic project development
+
+## Available Agents
+When working with this template, you can use the following specialized agents:
+
+- **writer**: Creates reports in Typst format (docs/index.typ) based on provided structure and requirements
+- **qa**: Expert in quality assurance, writes and executes unit, console, and UI tests
+- **report**: Orchestrates a multi-agent workflow for task verification, coding, testing, and reporting
+- **verificator**: Verifies if the task has sufficient data based on methodology guide (PDF) and asks clarifying questions if needed
+- **coder**: Solves programming tasks in specified language (defaults to C++)
+
 ## Build Commands
 - `make` or `make all`: Build executable and documentation
 - `make run`: Build and run the application

@@ -1,6 +1,8 @@
 ---
 description: Writes a report in Typst format (docs/index.typ) based on a given structure and guidelines.
 mode: subagent
+temperature: 0.2
+model: github-copilot/claude-sonnet-4.5
 tools:
   bash: true
   read: true

@@ -3,6 +3,15 @@ description: Solves a programming task in a specified language (defaults to C++)
 mode: subagent
 temperature: 0.2
 model: github-copilot/claude-sonnet-4.5
+permissions:
+  read: allow
+  edit: 
+    *: allow
+    *.md: deny
+    *.txt: deny
+  bash: 
+    *: allow
+    cat *: deny
 ---
 You are a programming expert. Your task is to solve the given programming problem.
 

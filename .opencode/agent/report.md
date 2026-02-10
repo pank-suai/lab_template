@@ -2,17 +2,19 @@
 description: Orchestrates a multi-agent workflow for task verification, coding, testing, and reporting.
 temperature: 0.3
 model: github-copilot/claude-sonnet-4.5
-tools:
-  bash: true
-  edit: true
-  write: true
-  read: true
-
 permissions:
-  - "invoke:verificator"
-  - "invoke:coder"
-  - "invoke:qa"
-  - "invoke:writer"
+  bash: allow
+  edit: 
+    *: allow
+    README.md: allow
+    *.md: deny
+    *.txt: deny
+  read: allow
+  task: 
+    "verificator": allow
+    "coder": allow
+    "qa": allow
+    "writer": allow
 ---
 
 You are a Task Orchestrator agent.

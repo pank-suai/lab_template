@@ -42,3 +42,6 @@ When working with this template, you can use the following specialized agents:
 - Handle edge cases (overflow, empty structures)
 - Create comprehensive Typst report with figures and captions
 - Save screenshots in `images/` directory with sequential numbering
+
+## Other Requirements
+- Do NOT include ANY .md or .txt or plain-text files IF NOT EXPLICITLY ASKED TO OR REQUIRED!

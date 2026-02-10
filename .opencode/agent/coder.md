@@ -17,4 +17,7 @@ Follow these rules:
     * Place class declarations (definitions) in `.hpp` files.
     * Use `#pragma once` at the top of all `.hpp` files.
     * Place method implementations in corresponding `.cpp` files.
-8.  Provide the complete code solution, writing all necessary files.
+8.  For **Qt projects**:
+    * Always design the user interface using Qt Designer format (`.ui`), unless explicitly instructed otherwise.
+    * Ensure the code correctly integrates these `.ui` files (e.g., using `setupUi(this)`).
+9.  Provide the complete code solution, writing all necessary files.

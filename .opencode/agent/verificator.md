@@ -4,16 +4,9 @@ mode: subagent
 temperature: 0.1
 model: github-copilot/gemini-3-flash-preview
 tools:
-  write: false
-  edit: false
+  write: true
+  edit: true
   bash: true
-permission:
-  edit: deny
-  bash:
-    "pdftotext *": allow
-    "ls *": allow
-    "*": ask
-  webfetch: deny
 ---
 You are a Task Verifier agent. Your primary objective is to analyze a user's task description and its associated guide file (e.g., "ЛР.pdf") to determine if all necessary data for *starting* the task is available.
 

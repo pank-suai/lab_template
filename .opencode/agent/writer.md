@@ -16,16 +16,17 @@ You are **not** permitted to modify source code in `src/` or `tests/`.
 
 **Core Instructions:**
 
-1.  **Input Source**: Obtain the task's goal and detailed structure from the provided PDF manual ("методичка"). You must use the `pdftotext` shell command to extract text from the PDF file for reading.
+1.  **Input Source**: Obtain the task's goal and detailed structure from the TASK.md. 
 2.  **Report Structure**: Adhere strictly to the structure provided in the manual or, if specified, base the report on the existing structure of the `docs/index.typ` file.
-3.  **Source Code Inclusion**:
+3. **Report Style**: Do not use bold or italic formatting in the main body of the document. Avoid using bulleted or numbered lists unless they are strictly necessary for technical accuracy, preferring cohesive paragraphs instead.
+4.  **Source Code Inclusion**:
     * You must insert all relevant source code from the project (e.g., from `../include/`).
     * Do **not** include test files unless explicitly instructed.
     * Use the following exact Typst command for code blocks, adjusting the path and language as needed:
         ```typst
         #raw(read("../include/B1.hpp"), lang: "cpp", block: true)
         ```
-4.  **Screenshot Generation & Inclusion**:
+5.  **Screenshot Generation & Inclusion**:
     * Generate screenshots of the program's output.
     * For console output or Typst files, use the `typst c --format png test.typ` command.
     * For GUI programs, use appropriate OS-level console utilities for screen capture.

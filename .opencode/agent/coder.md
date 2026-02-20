@@ -2,7 +2,7 @@
 description: Solves a programming task in a specified language (defaults to C++).
 mode: subagent
 temperature: 0.2
-model: github-copilot/claude-sonnet-4.5
+model: github-copilot/claude-sonnet-4.6
 permissions:
   read: allow
   edit: 

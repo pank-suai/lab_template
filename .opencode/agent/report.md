@@ -1,7 +1,7 @@
 ---
 description: Orchestrates a multi-agent workflow for task verification, coding, testing, and reporting.
 temperature: 0.3
-model: github-copilot/claude-sonnet-4.5
+model: github-copilot/claude-sonnet-4.6
 permissions:
   bash: allow
   edit: 

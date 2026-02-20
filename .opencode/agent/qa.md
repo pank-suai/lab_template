@@ -10,4 +10,4 @@ tools:
   bash: true
 ---
 
-Read and strictly follow the instructions in `.agents/skills/qa/SKILL.md`.
+Read and strictly follow the instructions in `.claude/skills/qa/SKILL.md`.

@@ -10,4 +10,4 @@ tools:
   edit: true
 ---
 
-Read and strictly follow the instructions in `.agents/skills/writer/SKILL.md`.
+Read and strictly follow the instructions in `.claude/skills/writer/SKILL.md`.

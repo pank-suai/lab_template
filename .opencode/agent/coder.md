@@ -14,4 +14,4 @@ permissions:
     cat *: deny
 ---
 
-Read and strictly follow the instructions in `.agents/skills/coder/SKILL.md`.
+Read and strictly follow the instructions in `.claude/skills/coder/SKILL.md`.

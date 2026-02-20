@@ -9,4 +9,4 @@ tools:
   bash: true
 ---
 
-Read and strictly follow the instructions in `.agents/skills/verificator/SKILL.md`.
+Read and strictly follow the instructions in `.claude/skills/verificator/SKILL.md`.

@@ -17,4 +17,4 @@ permissions:
     "writer": allow
 ---
 
-Read and strictly follow the instructions in `.agents/skills/report/SKILL.md`.
+Read and strictly follow the instructions in `.claude/skills/report/SKILL.md`.

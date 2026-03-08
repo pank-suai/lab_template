@@ -1,13 +1,118 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
+    "jupyter": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "jupyter-mcp-server@latest"
+      ],
+      "environment": {
+        "JUPYTER_URL": "http://localhost:8888",
+        "JUPYTER_TOKEN": "OPENCODE",
+        "ALLOW_IMG_OUTPUT": "true"
+      }
+    },
     "pdf-reader": {
-        "type": "local",
-        "command": ["npx", "@sylphx/pdf-reader-mcp"]
+      "type": "local",
+      "command": ["npx", "@sylphx/pdf-reader-mcp"]
     },
     "chrome-devtools": {
       "type": "local",
       "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--autoConnect"]
+    }
+  },
+  "agent": {
+    "verificator": {
+      "description": "Verifies if the task has sufficient data based on a provided guide (e.g., PDF) and asks clarifying questions if needed.",
+      "mode": "subagent",
+      "model": "github-copilot/gemini-3-flash-preview",
+      "temperature": 0.1,
+      "prompt": "{file:./.claude/skills/verificator/SKILL.md}",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "report": {
+      "description": "Orchestrates a multi-agent workflow for task verification, coding, testing, and reporting.",
+      "temperature": 0.3,
+      "model": "github-copilot/gemini-3-flash-preview",
+      "prompt": "{file:./.claude/skills/report/SKILL.md}",
+      "permission": {
+        "bash": "allow",
+        "edit": {
+          "*": "allow",
+          "README.md": "allow",
+          "*.md": "deny",
+          "*.txt": "deny"
+        },
+        "task": {
+          "verificator": "allow",
+          "coder": "allow",
+          "qa": "allow",
+          "writer": "allow",
+          "math": "allow"
+        }
+      }
+    },
+    "qa": {
+      "description": "Expert in lean software quality assurance. Focuses on minimal, high-impact testing.",
+      "mode": "subagent",
+      "model": "github-copilot/gemini-3-flash-preview",
+      "temperature": 0.2,
+      "prompt": "{file:./.claude/skills/qa/SKILL.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "writer": {
+      "description": "Writes a report in Typst format (docs/index.typ) based strictly on the structure in TASK.md.",
+      "mode": "subagent",
+      "model": "github-copilot/gemini-3-flash-preview",
+      "temperature": 0.2,
+      "prompt": "{file:./.claude/skills/writer/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "read": true,
+        "write": true,
+        "edit": true
+      }
+    },
+    "coder": {
+      "description": "Solves a programming task in a specified language.",
+      "mode": "subagent",
+      "model": "github-copilot/claude-sonnet-4.6",
+      "temperature": 0.2,
+      "prompt": "{file:./.claude/skills/coder/SKILL.md}",
+      "permission": {
+        "edit": {
+          "*": "allow",
+          "*.md": "deny",
+          "*.txt": "deny"
+        },
+        "bash": {
+          "*": "allow",
+          "cat *": "deny"
+        }
+      }
+    },
+    "math": {
+      "description": "Solves mathematical tasks using Jupyter notebook, showing step-by-step solutions with small code cells and explanations.",
+      "mode": "subagent",
+      "model": "github-copilot/gemini-3.1-pro",
+      "temperature": 0.2,
+      "prompt": "{file:./.claude/skills/math/SKILL.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
     }
   }
 }

@@ -26,7 +26,7 @@
     "verificator": {
       "description": "Verifies if the task has sufficient data based on a provided guide (e.g., PDF) and asks clarifying questions if needed.",
       "mode": "subagent",
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "glm-4-7/glm-4-7",
       "temperature": 0.1,
       "prompt": "{file:./.claude/skills/verificator/SKILL.md}",
       "tools": {
@@ -38,7 +38,7 @@
     "report": {
       "description": "Orchestrates a multi-agent workflow for task verification, coding, testing, and reporting.",
       "temperature": 0.3,
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "glm-4-7/glm-4-7",
       "prompt": "{file:./.claude/skills/report/SKILL.md}",
       "permission": {
         "bash": "allow",
@@ -53,14 +53,15 @@
           "coder": "allow",
           "qa": "allow",
           "writer": "allow",
-          "math": "allow"
+          "math": "allow",
+          "study-material": "allow"
         }
       }
     },
     "qa": {
       "description": "Expert in lean software quality assurance. Focuses on minimal, high-impact testing.",
       "mode": "subagent",
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "glm-4-7/glm-4-7",
       "temperature": 0.2,
       "prompt": "{file:./.claude/skills/qa/SKILL.md}",
       "tools": {
@@ -73,7 +74,7 @@
     "writer": {
       "description": "Writes a report in Typst format (docs/index.typ) based strictly on the structure in TASK.md.",
       "mode": "subagent",
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "glm-4-7/glm-4-7",
       "temperature": 0.2,
       "prompt": "{file:./.claude/skills/writer/SKILL.md}",
       "tools": {
@@ -86,7 +87,7 @@
     "coder": {
       "description": "Solves a programming task in a specified language.",
       "mode": "subagent",
-      "model": "github-copilot/claude-sonnet-4.6",
+      "model": "anthropic/claude-opus-4-6",
       "temperature": 0.2,
       "prompt": "{file:./.claude/skills/coder/SKILL.md}",
       "permission": {
@@ -104,9 +105,22 @@
     "math": {
       "description": "Solves mathematical tasks using Jupyter notebook, showing step-by-step solutions with small code cells and explanations.",
       "mode": "subagent",
-      "model": "github-copilot/gemini-3.1-pro",
+      "model": "google/gemini-3.1-pro",
       "temperature": 0.2,
       "prompt": "{file:./.claude/skills/math/SKILL.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "study-material": {
+      "description": "Generates comprehensive study materials with theory, methods, and control questions with answers based on the lab assignment.",
+      "mode": "subagent",
+      "model": "glm-4-7/glm-4-7",
+      "temperature": 0.3,
+      "prompt": "{file:./.claude/skills/study-material/SKILL.md}",
       "tools": {
         "read": true,
         "write": true,

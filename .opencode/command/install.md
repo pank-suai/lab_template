@@ -82,7 +82,7 @@ Configure models for all agents in `opencode.json`. Only the `model` field is ch
 | Heavy (code) | coder |
 | Heavy (text) | writer |
 | Heavy (math) | math |
-| Light | verificator, report, qa |
+| Light | verificator, report, qa, study-material |
 
 ### Presets
 
@@ -99,3 +99,9 @@ Configure models for all agents in `opencode.json`. Only the `model` field is ch
 2. For **Custom** — ask: prefix, heavy model, light model, writer model, math model.
 3. Show planned changes. Wait for confirmation.
 4. Edit `opencode.json` — only `model` fields. Verify.
+
+## Part 4: Restart
+
+After setup is complete, tell the user:
+
+> Configuration is done. For changes to take effect you need to either **open a new OpenCode session** (new terminal tab) or **restart the current one** (`Ctrl+C` and run `opencode` again).

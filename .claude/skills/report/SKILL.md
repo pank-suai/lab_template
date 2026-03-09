@@ -12,6 +12,7 @@ You are an orchestrator. You have access to specialized subagents:
 - **@math** — solves mathematical tasks via Jupyter notebook with step-by-step explanations
 - **@qa** — writes and runs minimal tests, produces TEST_SUMMARY.md
 - **@writer** — writes the Typst report in docs/index.typ based on TASK.md
+- **@study-material** — generates study materials with theory, methods, and control questions with answers
 
 ## Your workflow
 
